@@ -1,5 +1,5 @@
 AWSTemplateFormatVersion: 2010-09-09
-Description: 'Creates a SageMaker Notebook and downloads a Git repo'
+Description: 'Creates a SageMaker Notebook with IAM role, and downloads a Git repo'
 Resources:
   SMExecutionRole:
     Type: 'AWS::IAM::Role'
@@ -29,11 +29,6 @@ Resources:
                 - ecr:*
                 - aoss:*
                 - iam:*
-                - cloudwatch:*
-                - cloudformation:ListStacks
-                - cloudformation:DescribeStacks
-                - cloudformation:DescribeStackResources
-                - cloudformation:DescribeStackResource
                 Resource: '*'              
   CodeRepository:
     Type: AWS::SageMaker::CodeRepository
